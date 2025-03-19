@@ -1,0 +1,30 @@
+hello, Nouman!! Welcome back -> medium (jinja)
+
+Flask -> library of flask used to render html dynamically 
+
+
+Ui -> Data -> python/flask(Jinja : Used html to update the information dynamically)
+
+
+render_template(it uses a HTML file and variables from the Flask application and update the HTML realtime)
+
+
+
+Steps to follow:
+1- Flask application uses html file which has jinja variable in it 
+2- HTML to render the Flask flow In Jinja
+3- Our flask application invokes jinja, jinja in return updates the html page via Flask(python)
+
+
+
+NOTE: Jinja embeds itself into html to update the iniformation passsed realtime/dynamically
+
+simple Html page  : Static
+Jinja embeds htmsl : Dynamic
+
+Get -> Uses information for sending data via browser (no sensitive information)
+POST -> Sends sensitive information and its not displayed on the browser
+
+Abc123!@# -> encrypt FDSDGDFSFSDLFDSJfkdsajfdasDFNsdmngdlfkgjsldfmvbnmdfgnSDKLFJASK:Dj;afjdsndssdfA;lfk:FLKsd
+Abc123!@# <- decrypt
+

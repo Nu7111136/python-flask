@@ -1,0 +1,181 @@
+.div1{
+	
+	margin-left:10px;
+	margin-top: 15px;
+	
+	
+}
+.div2{
+	margin-left:15px;
+	margin-top: 30px;
+	border-width : 50px;
+	border-color : yellow;
+	border-style : solid;
+}
+
+.div3
+{ 
+	margin-left:20px;
+	margin-top: 45px;
+	background-color: green;
+	
+ }
+
+
+.fade-in {
+    animation: fadeIn 4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    20% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.slide-in-left {
+    animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+.bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+.rotate {
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+.pulse {
+    animation: pulse 2s infinite;
+	
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.color-change {
+    animation: colorChange 3s infinite alternate;
+	
+}
+
+@keyframes colorChange {
+    0% { background-color: red; }
+    100% { background-color: blue; }
+}
+.swing {
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+. {
+    animation: zoomIn 2s ease-in;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+.wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+.flip {
+    animation: flip 2s infinite;
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(360deg); }
+}
+.zigzag {
+    animation: zigzag 2s infinite;
+}
+
+@keyframes zigzag {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-20px) translateY(-20px); }
+    50% { transform: translateX(20px) translateY(-20px); }
+    75% { transform: translateX(-20px) translateY(20px); }
+}
+
+.skew-slide {
+    animation: skewSlide 1s ease-out;
+}
+
+@keyframes skewSlide {
+    0% { transform: translateX(-100%) skewX(-20deg); }
+    100% { transform: translateX(0) skewX(0); }
+}
+.flicker {
+    color: green;
+    text-shadow: 0 0 30px green, 0 0 20px green, 0 0 30px green, 0 0 40px green;
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green, 0 0 40px green; }
+    50% { opacity: 0.5; text-shadow: none; }
+}
+
+.wave {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}
+.squarerun {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count: 3;
+  margin-left:15px;
+	margin-top: 30px;
+	border-width : 50px;
+	border-color : yellow;
+	border-style : solid;
+
+}
+@keyframes example {
+  0%   {background-color:purple; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}

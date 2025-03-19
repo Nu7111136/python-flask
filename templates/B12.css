@@ -1,0 +1,54 @@
+.container {
+    background-color: #f4f4f4;
+    border: 5px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50px;
+	
+}
+.description {
+	color : orange;
+	
+}
+.myDiv {
+	
+	margin-left : 10px;
+	background-image: url('SEO.jpg'); 
+	background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+	
+}
+
+.fadeIn {
+	opacity: 0;
+	animation: fadeIn 5s;
+	}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100%{
+		
+		opacity: 1;
+	}
+}
+.color-change {
+    animation: colorChange 3s infinite alternate;
+	
+}
+
+@keyframes colorChange {
+    0% { background-color: purple; }
+  100% { background-color: yellow; }
+}
+/* Apply background image to the entire page */
+body {
+    background-image: url('SEO.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    color: white; 
+} 

@@ -1,0 +1,31 @@
+<p> {{name}} </p>
+<p> {{mobile}}</p>
+{% for language_value in languages %}
+<p> {{language_value}} </p>
+{% endfor %}  
+
+<p> {{current_date}} </p>
+
+
+
+{% for item in items %}
+  <p>{{ item }}</p>
+{% endfor %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome Page</title>
+</head>
+<body>
+    <h1>Hello, {{ name }}!</h1>
+    <p>Here are your favorite programming languages:</p>
+    <ul>
+        {% for language in languages %}
+            <li>{{ language }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

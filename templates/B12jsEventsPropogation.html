@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+	<!--	<meta name="viewport" content="width-device-width, initial-scale=1.0"> -->
+</head>
+
+<body>
+			<div id="parent" style="padding:20px; background-color:lightblue;">
+				Parent DIV 
+				<div id="child" style="padding:20px; background-color:lightcoral;">
+				Child DIV
+				</div>
+				
+			</div>
+		
+		<script>
+				const  parent = document.getElementById('parent');
+				const  child = document.getElementById('child');
+				
+				parent.addEventListener('click', function() {
+				alert('Parent Div Clicked');
+					event.stopPropagation();
+					});
+					
+					child.addEventListener('click', function() {
+				alert('Child Div Clicked');
+					event.stopPropagation();
+					});
+		</script>
+
+</body>

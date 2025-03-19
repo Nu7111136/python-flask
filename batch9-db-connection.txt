@@ -1,0 +1,35 @@
+from flask import Flask, render_template, request
+import sqlite3 
+
+app = Flask(__name__)
+
+
+def insert_data(myName, myMobile):
+    
+    connection = connect_to_database()
+    print(f" inside the insert db method")
+    if connection is not None:
+        cursor = connection.cursor()
+        try:
+            print(f" inside the insert try ")
+            print(f"value for name: {myName}")
+            print(f"value for name: {myMobile}")
+            cursor.execute("INSERT INTO users (name, mobile) VALUES (?, ?)", (myName, myMobile))
+            connection.commit()
+            last_row_id = cursor.lastrowid  # Get the ID of the last inserted row
+            print(f"Inserted data with ID: {last_row_id}")
+        except sqlite3.Error as e:
+            print("Error inserting data:", e)
+        finally:
+            connection.close()
+    else:
+        print("Cannot perform database operations because the connection failed")
+
+def connect_to_database():
+    try:
+        conn = sqlite3.connect('D:/python/myTestDb.db')
+        print("Connection to the database successful")
+        return conn
+    except sqlite3.Error as e:
+        print("Connection to the database failed:", e)
+        return None

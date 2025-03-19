@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Basic HTML Page</title>
+	
+	
+<script>
+	 function validateName() {  
+		var name = document.getElementById('name').value;
+		var mobile = document.getElementById('mobile').value;
+		var email= document.getElementById('email').value;
+		
+		var regexAlpha  = /^[a-zA-Z][a-zA-Z\\s]+$/;
+		var regexDigits = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+		var regexEmail = /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/;
+		
+		if (!name.match(regexAlpha))
+		{
+			 alert('Please enter a valid name (only alphabets and spaces allowed, and must start with an alphabet).');
+             return false; // Stop further execution
+			}
+		
+		if (!mobile.match(regexDigits))
+		{
+			 alert('Please enter a valid mobile number (10 digits with optional country code).');
+             return false; // Stop further execution
+			}
+		
+		if (!email.match(regexEmail))
+		{
+        alert('email entered is wrong');    
+             return false; // Stop further execution
+			}
+		
+		
+			alert ('this is a alert');	
+			return true;   
+   }
+</script>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a basic HTML page using Flask.</p>
+	
+	<form action="/" method="post">
+		<label for="name"></label>
+        <input type="text" id="name" name="name" placeholder="Enter your Name" required> <br><br>
+       
+		<label for="mobile"></label>
+        <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" required ><br><br>
+		<!--enter email -->
+		<label for="email"></label>
+        <input type="text" id="email" name="email" placeholder="Enter your email address" required ><br><br>
+        <br>
+		<br>
+		<div>
+       <button type="submit" onclick="validateName()">Submit</button>
+		</div>
+	</form>
+	<h2>Submitted Data: </h2>
+	<!-- This block is a flask template to fetch the values on the html page-->
+	<p>Name: {{ name }} </p>    
+	<p> Mobile: {{ mobile }} </p>
+	<p>Email: {{ email }}  </p>
+	<p><strong>Message: {{  message | capitalize }} <strong></p>
+	
+	<p> save: {{ save }}  </p>
+ 
+</body>
+</html>
+	
+

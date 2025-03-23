@@ -16,7 +16,7 @@ def index():
         message = 'Form submitted successfully'
     return render_template('index.html', name=myName, mobile=myMobile, message=message)
 
-def insert_data(myName, myMobile,):
+def insert_data(myName, myMobile):
     
     connection = connect_to_database()
     print(f" inside the insert db method")

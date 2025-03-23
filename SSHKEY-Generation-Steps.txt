@@ -1,3 +1,6 @@
+MY Current KEY
+SHA256:3ObXEtA/TTV6hgGQzEhZycCqMAtmIn6fSc1CX7DaT1E nu7111136@gmail.com
+
 # Git SSH Troubleshooting Guide
 
 ## 1️⃣ Setting Up SSH Key

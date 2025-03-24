@@ -1,0 +1,22 @@
+# Flask web framework
+Flask==3.0.0  
+
+# SQLite support (built-in, no need to install separately)
+
+# Jinja template engine (included with Flask, but explicitly adding)
+Jinja2==3.1.2  
+
+# Form handling for Flask
+Flask-WTF==1.1.1  
+
+# AWS SDK for Python (if interacting with AWS services)
+boto3==1.28.0  
+
+# Database migration support (optional, if using Flask-Migrate)
+Flask-Migrate==4.0.4  
+
+# Gunicorn (optional, recommended for running Flask in production)
+gunicorn==21.2.0  
+
+# If using dotenv for environment variables (optional)
+python-dotenv==1.0.0  

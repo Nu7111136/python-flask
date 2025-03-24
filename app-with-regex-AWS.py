@@ -79,7 +79,7 @@ def connect_to_database():
 @app.route('/save/<name>') ### passing a parameter that will help entering the name from the url 
 def save(name):
    
-    print('inside the save method')
+    print('inside the save method for AWS')
     return render_template('user.html' , name=name) ### creating a simple route that takes input from the user via address bar 
 
 @app.route('/user') ## render template example to give names without id's

@@ -11,7 +11,7 @@ phases:
 
   build:
     commands:
-      - echo "Starting app-with-regex.py"
+      - echo "Starting app-with-regex-AWS.py for running on cloud"
       - python app-with-regex-AWS.py  # Run only this file
 
   post_build:

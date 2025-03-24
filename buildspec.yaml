@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+
+  build:
+    commands:
+      - echo "Starting app-with-regex.py"
+      - python app-with-regex-AWS.py  # Run only this file
+
+  post_build:
+    commands:
+      - echo "Build completed successfully."

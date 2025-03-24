@@ -19,7 +19,7 @@ def index():
 def insert_data(myName, myMobile):
     
     connection = connect_to_database()
-    print(f" inside the insert db method")
+    print(f" inside the insert db method on AWS")
     if connection is not None:
         cursor = connection.cursor()
         try:
@@ -62,18 +62,18 @@ def create_table():
                           (id INTEGER PRIMARY KEY, name TEXT, mobile TEXT)''')
         conn.commit()
         conn.close()
-        print("Table created successfully")
+        print("Table created successfully on AWS")
     except sqlite3.Error as e:
-        print("Error creating table:", e)
+        print("Error creating table on AWS:", e)
 
 def connect_to_database():
     try:
         db_path = os.path.join(os.getcwd(), 'myTestDb.db')  # Store in the project directory
         conn = sqlite3.connect(db_path)
-        print(f"Connected to database at {db_path}")
+        print(f"Connected to database at {db_path} on AWS")
         return conn
     except sqlite3.Error as e:
-        print("Connection to the database failed:", e)
+        print("Connection to the database failed on AWS:", e)
         return None
 
 @app.route('/save/<name>') ### passing a parameter that will help entering the name from the url 

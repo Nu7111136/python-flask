@@ -1,19 +1,31 @@
 from flask import Flask, render_template, request
-import sqlite3, os
+import mysql.connector, random
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    myName='' # initialzation
-    myMobile=''
-    message=''
+    myName = ''
+    myMobile = ''
+    message = ''
+
+    # Predefined random values
+    random_names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve']
+    random_numbers = ['03001234567', '03111234567', '03211234567', '03331234567', '03451234567']
+
     if request.method == 'POST':
-        myName = request.form['name']
-        myMobile = request.form['mobile']
+        myName = request.form.get('name', '').strip()
+        myMobile = request.form.get('mobile', '').strip()
+
+        # If no input, use random ones
+        if not myName:
+            myName = random.choice(random_names)
+        if not myMobile:
+            myMobile = random.choice(random_numbers)
 
         insert_data(myName, myMobile)
-        message = 'Form submitted successfully'
+        message = 'Form submitted successfully with random values' if not request.form['name'] else 'Form submitted successfully'
+
     return render_template('index.html', name=myName, mobile=myMobile, message=message)
 
 def insert_data(myName, myMobile):
@@ -68,12 +80,16 @@ def create_table():
 
 def connect_to_database():
     try:
-        db_path = os.path.join(os.getcwd(), 'myTestDb.db')  # Store in the project directory
-        conn = sqlite3.connect(db_path)
-        print(f"Connected to database at {db_path} on AWS")
+        conn = mysql.connector.connect(
+            host="database-1.cls68qui4ttx.eu-north-1.rds.amazonaws.com",  # Replace with your RDS endpoint
+            user="admin",
+            password="Password#1",
+            database="myflaskdb"
+        )
+        print("Connected to RDS MySQL!")
         return conn
-    except sqlite3.Error as e:
-        print("Connection to the database failed on AWS:", e)
+    except mysql.connector.Error as e:
+        print("Error connecting to RDS:", e)
         return None
 
 @app.route('/save/<name>') ### passing a parameter that will help entering the name from the url 

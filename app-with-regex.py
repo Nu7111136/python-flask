@@ -2,6 +2,10 @@ from flask import Flask, render_template, request
 import sqlite3 
 
 app = Flask(__name__)
+@app.route('/users', methods=['GET','POST'])
+def users():
+    users = select_all_data()
+    return render_template('Users.html',users=users)
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -47,6 +51,7 @@ def select_all_data():
             return rows
         except sqlite3.Error as e:
             print("Error selecting data:", e)
+            return None
         finally:
             connection.close()
     else:

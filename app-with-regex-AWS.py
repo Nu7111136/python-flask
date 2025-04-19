@@ -86,7 +86,7 @@ def connect_to_database():
             password="Password#1",
             database="myflaskdb"
         )
-        print("Connected to RDS MySQL!")
+        print("Connected to RDS MySQL for Flask!")
         return conn
     except mysql.connector.Error as e:
         print("Error connecting to RDS:", e)

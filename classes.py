@@ -6,7 +6,7 @@ app = Flask(__name__)
 class GreetingAPI(MethodView):
     def get(self):
         # Handles GET requests
-        return jsonify({"message": "Welcome to Flask!"})
+        return jsonify({"message": "Welcome to Flask in a feature branch!"})
 
     def post(self):
         # Handles POST requests

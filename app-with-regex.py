@@ -17,7 +17,7 @@ def index():
         myMobile = request.form['mobile']
 
         insert_data(myName, myMobile)
-        message = 'Form submitted successfully'
+        message = 'Form submitted successfully for azure'
     return render_template('index.html', name=myName, mobile=myMobile, message=message)
 
 def insert_data(myName, myMobile):

@@ -1,0 +1,58 @@
+trigger:
+  - master
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  azureSubscription: "YOUR_AZURE_SERVICE_CONNECTION"
+  appName: "YOUR_APP_SERVICE_NAME"
+  resourceGroup: "flask-app-rg"
+  pythonVersion: "3.11"
+
+steps:
+  - task: UsePythonVersion@0
+    displayName: "Use Python $(pythonVersion)"
+    inputs:
+      versionSpec: "$(pythonVersion)"
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    displayName: "Install dependencies"
+
+  - task: ArchiveFiles@2
+    displayName: "Create deployment package"
+    inputs:
+      rootFolderOrFile: "$(Build.SourcesDirectory)"
+      includeRootFolder: false
+      archiveType: "zip"
+      archiveFile: "$(Build.ArtifactStagingDirectory)/app.zip"
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish build artifact"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)/app.zip"
+      ArtifactName: "drop"
+
+  - task: AzureCLI@2
+    displayName: "Set Gunicorn startup command"
+    inputs:
+      azureSubscription: "$(azureSubscription)"
+      scriptType: "bash"
+      scriptLocation: "inlineScript"
+      inlineScript: |
+        az webapp config set \
+          --name $(appName) \
+          --resource-group $(resourceGroup) \
+          --startup-file "gunicorn --bind=0.0.0.0:8000 --timeout 600 app_with_regex:app"
+
+  - task: AzureWebApp@1
+    displayName: "Deploy to Azure Web App"
+    inputs:
+      azureSubscription: "$(azureSubscription)"
+      appType: "webAppLinux"
+      appName: "$(appName)"
+      package: "$(Build.ArtifactStagingDirectory)/app.zip"

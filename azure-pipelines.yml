@@ -6,8 +6,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  azureSubscription: "YOUR_AZURE_SERVICE_CONNECTION"
-  appName: "YOUR_APP_SERVICE_NAME"
+  azureSubscription: "flask-azure-conn"
+  appName: "flask-azure-app"
   resourceGroup: "flask-app-rg"
   pythonVersion: "3.11"
 

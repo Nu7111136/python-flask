@@ -6,7 +6,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  azureSubscription: "flask-azure-conn"
+  azureSubscription: "Nu7111136"
   appName: "flask-azure-app"
   resourceGroup: "flask-app-rg"
   pythonVersion: "3.11"

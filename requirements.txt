@@ -20,3 +20,7 @@ gunicorn==21.2.0
 
 # If using dotenv for environment variables (optional)
 python-dotenv==1.0.0  
+
+
+
+# i will be needing n8n workflows 28-06-2026
